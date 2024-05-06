@@ -1,0 +1,17 @@
+{
+  "name": "sass-encodeuricomponent",
+  "version": "1.0.0",
+  "description": "Sass version of Javascript encodeURIComponent function",
+  "main": "sass-encodeuricomponent.scss",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sass",
+    "scss",
+    "encodeURI",
+    "encodeURIComponent"
+  ],
+  "author": "Jeremiah Blanch",
+  "license": "ISC"
+}
