@@ -1,6 +1,6 @@
 @charset "utf-8"; 
 
-$asciiHexMap: (
+$_asciiHexMap: (
 	" ": "%20",
 	"\"": "%22",
 	"#": "%23",
@@ -18,20 +18,20 @@ $asciiHexMap: (
 	"}": "%7d"
 );
 
-@function getHexCode($asciiChar) {
-	$hex: map-get($asciiHexMap, $asciiChar);
+@function _getHexCode($asciiChar) {
+	$hex: map-get($_asciiHexMap, $asciiChar);
 	@if($hex == null) {
 		$hex: $asciiChar; 
 	}
 	@return $hex;
 }
 
-@function encodeURIComponent ($raw: '') {
+@function encodeURIComponent($raw: '') {
   $str: $raw + ' ';
 	$str_len: str_length($str);
 	$result: '';
 	@for $i from 1 through $str_len {
-		$result: $result + getHexCode(str_slice($str, $i, $i));
+		$result: $result + _getHexCode(str_slice($str, $i, $i));
 	}
 	@return $result;
 }
