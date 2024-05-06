@@ -9,6 +9,9 @@
     "encodeURI",
     "encodeURIComponent"
   ],
+  "scripts": {
+    "publish-to-npm": "npm publish --access public"
+  },
   "author": "Jeremiah Blanch",
   "license": "ISC"
 }
