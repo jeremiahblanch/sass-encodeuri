@@ -16,27 +16,20 @@ $asciiHexMap: (
 	"}": "%7d"
 );
 
-@function getHexCode($ascii) {
-	$n: '
-';
-	@if($n == $ascii) {
-
-		$ascii: "";
-	}
-	$hex: map-get($asciiHexMap, $ascii);
-	@if(null == $hex) {
-		$hex: $ascii; 
+@function getHexCode($asciiChar) {
+	$hex: map-get($asciiHexMap, $asciiChar);
+	@if($hex == null) {
+		$hex: $asciiChar; 
 	}
 	@return $hex;
 }
 
 
-@function encodeURI ($svg: '') {
-	$svg: insertXmlns($svg);
-	$url: 'data:image/svg+xml;charset=utf-8,';
-	$str_len: str_length($svg);
+@function encodeURIComponent ($str: '') {
+	$str_len: str_length($str);
+	$result: '';
 	@for $i from 1 through $str_len {
-		$url: $url + getHexCode(str_slice($svg, $i, $i));
+		$result: $result + getHexCode(str_slice($str, $i, $i));
 	}
-	@return $url;
+	@return $result;
 }
